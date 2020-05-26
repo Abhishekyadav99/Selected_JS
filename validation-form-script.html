@@ -1,0 +1,140 @@
+<html>
+<head>
+	<title>Assignment9</title>
+	
+	<style type="text/css">
+		.cent{
+			text-align: center;
+			color: #FF1493;
+  			text-shadow: 2px 2px 4px #000000;
+  			text-transform: uppercase;
+		}
+
+		.txt{
+			text-align: center;
+			color: #FF1493;
+  			text-shadow: 2px 2px 4px #000000;
+  			text-transform: uppercase;	
+		}
+
+		.btn{
+			text-align: center;
+		}
+		.button{
+			background-color: #4CAF50;
+			font-size: 20px;
+			padding: 14px 40px;
+			border-radius: 12px;
+			border: 2px solid #0000FF;
+			color:#0000FF;
+			transition-duration: 0.4s;
+		}
+
+		.button2 {
+  			background-color: #008CBA; 
+  			color: white; 
+  			border: 2px solid #008CBA;
+		}
+
+		.button2:hover {
+  			background-color: #008080;
+  			color: white;
+		}
+		
+	</style>
+	<script>
+	function validate(){
+
+		var value=false;
+		var value1=false;
+		var value2=false;
+
+		var exp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		var Email=document.myform.uname.value;
+		var result = exp.test(Email);
+		if(result){
+			//alert("validate Sucessfull");
+			value=true;
+		}else{
+			document.getElementById("err").innerHTML="Please Enter a Valid Email I'd";
+
+			document.myform.uname.focus();
+			value= false;
+		}
+		
+
+		var exp1 = /^\d{10}$/;
+		var Ph=document.myform.ph.value;
+		var result = exp1.test(Ph);
+		if(result){
+			//alert("validate Sucessfull");
+			value1=true;
+		}else{
+			document.getElementById("err1").innerHTML="Please Enter a Valid Phone Number";
+			document.myform.ph.focus();
+			value1= false;
+		}
+
+		var exp2 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+		var Pass=document.myform.pass.value;
+		var result = exp2.test(Pass);
+		if(result){
+			//alert("validate Sucessfull");
+			value2=true;
+		}else{
+			document.getElementById("err2").innerHTML="Please Enter a Valid Password";
+			document.myform.pass.focus();
+			value2= false;
+		}
+
+
+		if(value==true&&value1==true&&value2==true){
+			alert("Validation Sucessfully");
+		}else{
+			alert("Please Fill the form again and carefully");
+			return false;
+		}
+
+	}
+	</script>
+<head/>
+<body bgcolor="#696969">
+	<div class="cent">
+		<br><br>
+		<h1>User &nbsp; Registration </h1>
+		<br>
+	</div>
+	<form name="myform" action="registration.jsp" onSubmit="return validate()">
+		<table>
+				<tr>
+					<div class="txt">
+						Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="text" name="uname"/><br/>
+						<b id="err" bgcolor="#E6E6FA"></b><br/>
+					</div>
+				</tr>
+				<tr>
+					<div class="txt">
+						Phone Number : <input type="Number" name="ph"/><br/>
+						<b id="err1"></b><br/>
+					</div>
+				</tr>
+				<tr>
+					<div class="txt">
+						 Password : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <input type="password" name="pass"><br/>
+						 <b id="err2"></b><br/>
+					</div>
+				</tr>
+				<tr>
+					<div class="btn">
+						<button class="button button2">submit</button>
+					</div>
+				</tr>
+		
+		</table>
+
+	</form>
+
+</body>
+</html>
